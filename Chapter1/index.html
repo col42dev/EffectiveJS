@@ -1,0 +1,163 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>New Web Project</title>
+        
+    </head>
+    <body>
+        <h2 id="heading">New Web Project Page</h2>
+        <h2> another heading</h2>
+        <span class="Unicode">𝄞</span>
+        
+        
+        <script type="text/javascript">
+  	
+        	// All the bitwsie operators work by converting values to integers and performing operations on operators before converting back to floating point
+        	console.log(8 | 1);
+        	
+        	console.log( "parseInt(\"1001\", 2) = " + parseInt("1001", 2) );
+        	
+        	console.log( "parseInt(\"1001\", 10)  = " + parseInt("1001", 10) );
+        	
+        	console.log( 0.1 + 0.2);
+        	
+        	console.log( (.1 + .2) + .3);
+        	console.log( .1 +(.2 + .3));
+        	
+        	if (((.1 +.2) + .3) == (.1 +(.2 + .3))) {
+        	  console.log("match1");
+        	}
+        	
+            if (((.1 +.2) + .3) === (.1 +(.2 + .3))) {
+        	  console.log("match2");
+        	}
+        	
+        	console.log( 3 + true); //4
+        	
+        	
+        	var x = NaN;
+        	console.log(x === NaN); // false
+        	
+        	console.log(isNaN(NaN)); // true
+        	
+        	console.log(isNaN(x));
+        	
+        	// since NaN is the only js value that is unequal to itself
+        	console.log(x !== x); // true
+        	
+        	function isReallyNaN(x) { 
+        		return x!==x;}
+        	
+        	console.log(isReallyNaN(x)); // true
+        		
+        		
+        	var obj = {
+        		toString: function() {
+        			return "[object MyObject]";
+        		},
+        		valueOf: function() {
+        			return 17;
+        		}
+        	};
+        	console.log( "object: " + obj);
+        	
+        	// truthiness
+        	
+        	var a = false;
+        	var a2 = 0;
+        	var a3 = -0;
+        	var a4 = "";
+        	var a5 = NaN;
+        	var a6 = undefined;
+        	var a7 = null;
+        	
+        	function point(x,y){
+        		if (typeof x === "undefined") { 
+        			x = 320;
+        		}
+        		if (typeof x === "undefined") {
+        			y = 240;
+        		}
+        		if (x === undefined) {
+        		    x = 320;
+        		}
+        		if (y === undefined) {
+        			y = 240;
+        		}
+        		return {x: x, y: y};
+        	}
+        	
+        	console.log(point(0,0));
+        	console.log(point());
+        	
+        	// primitive values
+        	var s1 = new String("hello");
+        	console.log(s1[4]);
+        	console.log("hello"[4]);
+        	console.log(typeof "hello");
+        	console.log(typeof s1);
+        	var s2 = new String("hello");
+        	console.log(s1 === s2); // false
+        	"hello".someProperty = 2; // getting and setting properties on primitives implcitly creates object wrappers
+        	
+        	// whne the two aguments are of the same type, there is no difference in behavior between == and ===
+        	
+        	var date = new Date();
+        	document.write(date);
+        	document.write("<br\>");
+        	document.write(date.getMonth());
+        	document.write("<br\>");
+        	document.write(new Date().getMonth());
+        	document.write("<br\>");
+        	var date2 = Date();
+        	
+        	// Item 6
+        	["r", "g", "b"].forEach( function(key) {
+        		document.write("<br\>");
+        		document.write(key);
+
+        	
+
+        		
+        	})
+        	
+        	   
+        	function continueExecution() {
+        		//document.write("<br\>");
+        		//console.log(new Date());	
+        		document.getElementById("heading").innerHTML = Date();
+        		setTimeout(continueExecution, 2000);
+        	}
+        	 setTimeout(continueExecution, 1000);
+        	 
+        	 
+        	var txt="";
+        	
+			function message()
+			{
+				try {
+				  //adddlert("Welcome guest!");
+				} catch(err) {
+				  txt="There was an error on this page.\n\n";
+				  txt+="Error description: " + err.message + "\n\n";
+				  txt+="Click OK to continue.\n\n";
+				  alert(txt);
+				}
+			}
+			
+			
+			message();
+			
+			
+			// Unicode codepoint: every unit of text of all the world's writing systems is assigned a unique integer between 0 and 1,114,111
+    
+    		document.write("<br\>");
+    		document.write("\"𝄞\".length = " + "𝄞".length); 
+    		
+    		/^.$/.test("𝄞"); // false
+    		/^..$/.test("𝄞"); // true
+        </script>
+    </body>
+</html>
