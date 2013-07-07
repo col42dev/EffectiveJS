@@ -15,10 +15,27 @@
         <pre><code>$ npm install jshint -g</code></pre>   
         
 
-        <p>Enable Aptana Studio console view</p>
+        <p>Enable in Aptana Studio console view</p>
         <pre><code>jshint chapter2.js</code></pre>
 
       
+       <h2 id="heading">Push to github</h2>
+       
+       <p>Create a new repository on the command line</p>
+       <pre><code>
+            touch README.md
+            git init
+            git add README.md
+            git commit -m "first commit"
+            git remote add origin https://github.com/col42dev/EffectiveJS.git
+            git push -u origin master
+       </code></pre>
+       <p>Push an existing repository from the command line</p>
+       <pre><code>
+           git remote add origin https://github.com/col42dev/EffectiveJS.git
+           git push -u origin master
+       </code></pre>
+        
         
         <script type="text/javascript" src="src/chapter2.js">
 
