@@ -37,38 +37,61 @@
     }
     console.log([2, 6, 2, 6, 2, 5, 8, 2].sort());
     console.log([2, 6, 2, 6, 2, 5, 8, 2].sort(mySort));
-    
+
     var names = ["Fred", "Wilma", "Pebbles"];
-    var upper = names.map( function (name) {
+    var upper = names.map(function (name) {
         return name.toUpperCase();
     });
     console.log(upper);
-    
+
     // use "call"" to Call Methods with a custom receiver
-    
+
     // variable-arity functions. "Apply" method
     var buffer = {
         state: [],
-        append: function() {
-            for (var i = 0, n = arguments.length; i < n; i = i + 1) {
+        append: function () {
+            var i, n;
+            for (i = 0, n = arguments.length; i < n; i = i + 1) {
                 this.state.push(arguments[i]);
             }
         }
     };
-   
+
     buffer.append("hello");
     buffer.append("Colin", " ", "Moore", "!");
     buffer.append("\n");
     console.log(buffer.state);
-    
+
     function callMethod(obj, method) {
         var args = [].slice.call(arguments, 2); // copy arguments in to array
         return obj[method].apply(obj, args);
     }
-    
+
     var obj3 = {
-        add: function(x, y) { return x + y; }
+        add: function (x, y) { return x + y; }
     };
-   
-    console.log(callMethod( obj3, "add", 17, 25));
+
+    console.log(callMethod(obj3, "add", 17, 25));
+
+    // use variables to Save a reference to arguments
+    function values() {
+        var i = 0, n = arguments.length, a = arguments;
+        return {
+            hasNext: function () {
+                return i < n;
+            },
+            next: function () {
+                if (i >= n) {
+                    throw new Error("end of iteration");
+                }
+                i =  i + 1;
+                return a[i - 1];
+            }
+        };
+    }
+    var it = values(1, 4, 1, 4, 2, 1, 3, 5, 6);
+    console.log(it.next());
+    console.log(it.next());
+    console.log(it.next());
+
 }());
